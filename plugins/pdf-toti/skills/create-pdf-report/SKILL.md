@@ -32,54 +32,65 @@ the deliverable, and label generated images honestly.
 
 ## Apply the Profit Connect brand
 
-Every PDF report from this skill carries the Profit Connect identity unless the
-scientist asks for an unbranded document.
+Every PDF report from this skill carries the Profit Connect identity
+(profitconnect.co.uk, revenue recovery audits) unless the scientist asks for an
+unbranded document.
 
 Resolve this skill's directory as `SKILL_ROOT`. The logo is
-`SKILL_ROOT/assets/profit-connect-logo.png` (167 x 167 px, square, white
-background). Never redraw, recolor, stretch, or crop it; scale it uniformly.
+`SKILL_ROOT/assets/profit-connect-logo.png`: the orange "p" mark plus the
+"profit connect" wordmark, 600 x 167 px (about 3.6 : 1), transparent background.
+Never redraw, recolor, stretch, or crop it; scale it uniformly and place it only
+on white or very light backgrounds.
 
-Brand name: **Profit Connect**. No official slogan has been supplied, so do not
-invent one or print a tagline. If a slogan is added later, put it on the cover
-under the brand name and in the running header.
+Slogan: **"Detection and recovery, our solution for your business"**. Use this
+exact wording; do not paraphrase it or invent other taglines.
 
-Palette, taken from the logo:
+Palette, from the company website's theme:
 
 | Role | Hex | Use |
 | --- | --- | --- |
-| Profit green | `#A0C651` | Accent rules, table header fills, callout bars, chart highlight series |
-| Charcoal | `#535150` | Headings, running header/footer text, table borders, secondary chart series |
-| Ink | `#000000` | Body text |
+| Profit orange | `#EF7D00` | Accent rules, callout bars, key-figure highlights, chart primary series |
+| Navy | `#14133B` | Headings, table header fills, cover title |
+| Charcoal | `#3C3C3B` | Body text, running header/footer text, table borders |
+| Light orange | `#FF9933` | Secondary accent, chart secondary series |
+| Light gray | `#F2F5F7` | Alternating table rows, callout backgrounds |
+| Rule gray | `#EDEDED` | Hairlines and subtle dividers |
 | Paper | `#FFFFFF` | Page background |
-| Green tint | `#ECF4DC` | Alternating table rows, callout backgrounds |
 
-Contrast rules: green on white is too low-contrast for text, so never set text
-in green on a light background. Text placed on a green fill is Ink or Charcoal.
-Charcoal on white is fine for headings and small text.
+Contrast rules: orange on white is about 2.8 : 1, so never set text in orange
+(or light orange) on a light background, and never set white text on orange.
+Use orange for rules, bars, fills, and chart marks. Text on an orange fill is
+Navy. Navy and Charcoal on white or Light gray are fine at any size.
 
 Layout:
 
-- **Cover / first page:** logo at the top left, about 1.1 in (80 pt) wide.
-  The logo already contains the "Profit Connect" wordmark, so do not repeat the
-  name next to it. Then the report title, subtitle and date, and a 3 pt Profit
-  green rule under the title block.
-- **Running header (pages after the first):** logo about 0.35 in (25 pt) wide
-  at the left, the report title in 8-9 pt Charcoal at the right, and a 1 pt
-  Profit green rule underneath.
-- **Footer (every page):** "Profit Connect" at the left and "Page N of M" at
-  the right, in 8 pt Charcoal, above a 0.5 pt Charcoal rule.
-- **Typography:** Helvetica-Bold for headings and Helvetica for body text,
-  which matches the logo's bold sans-serif wordmark. H1 in Charcoal with a
-  short Profit green underline; H2 and H3 in Charcoal.
-- **Tables:** Profit green header row with bold Ink text, Green tint banding,
-  Charcoal 0.5 pt grid.
-- **Charts:** Profit green for the primary series, Charcoal for the secondary
-  one, then lighter grays; keep the data colors distinct where a chart has more
+- **Cover / first page:** logo at the top left, about 2.2 in (160 pt) wide. The
+  logo already contains the "profit connect" wordmark, so do not repeat the
+  name next to it. Under it, the slogan in 10-11 pt italic Charcoal. Then the
+  report title in Navy, subtitle and date in Charcoal, and a 3 pt Profit orange
+  rule under the title block.
+- **Running header (pages after the first):** logo about 0.3 in (22 pt) tall at
+  the left, the report title in 8-9 pt Charcoal at the right, and a 1 pt Profit
+  orange rule underneath.
+- **Footer (every page):** the slogan at the left and "Page N of M" at the
+  right, in 8 pt Charcoal, above a 0.5 pt Rule gray line.
+- **Typography:** the website uses Archivo for headings and Barlow for body
+  text. Use static (non-variable) TTFs of those families when the prepared
+  runtime provides them or the scientist supplies them, registered with
+  ReportLab's `TTFont`. Otherwise fall back to Helvetica-Bold for headings and
+  Helvetica for body text; do not download fonts without asking. H1 in Navy
+  with a short Profit orange underline; H2 and H3 in Navy.
+- **Tables:** Navy header row with bold white text, Light gray banding,
+  Charcoal 0.5 pt grid. Highlight a key row or cell with a Profit orange left
+  bar, not orange text.
+- **Charts:** Profit orange for the primary series, Navy for the secondary,
+  then Light orange and grays; keep data colors distinct where a chart has more
   series.
 
 Implement the header and footer with ReportLab `onFirstPage` / `onLaterPages`
 callbacks (or `PageTemplate` frames) so they repeat on every page, and use a
-two-pass build or a `NumberedCanvas` to print the total page count.
+two-pass build or a `NumberedCanvas` to print the total page count. Draw the
+PNG logo with `mask="auto"` so its transparency is kept.
 
 ## Verify the artifact
 
@@ -92,8 +103,8 @@ After each meaningful layout change:
    unreadable text, poor spacing, broken glyphs, misplaced figures, and weak
    page transitions. Also confirm the branding: the logo is sharp and
    undistorted, the header and footer appear on every page with correct page
-   numbers, the brand colors are applied as specified, and no text is set in
-   green on a light background.
+   numbers, the slogan is spelled exactly, the brand colors are applied as
+   specified, and no text is set in orange on a light background.
 4. Correct defects and repeat the checks. Content extraction alone is not
    evidence of visual correctness.
 
