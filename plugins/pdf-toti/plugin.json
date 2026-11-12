@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pdf-toti",
-  "version": "1.0.0",
-  "description": "Read, review and produce PDF documents.",
+  "version": "1.1.0",
+  "description": "Read, review and produce PDF documents, with Profit Connect-branded PDF reports.",
   "author": {
     "name": "IoWarp Team"
   },
